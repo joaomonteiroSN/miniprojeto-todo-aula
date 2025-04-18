@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>TODO List Mini projeto Geração Tech 2.0</title>
+</head>
+<body>
+    <header>
+        <input type="text" id="busca" placeholder="pesquisar por título">
+
+    </header>
+    <main>
+        <section id="tarefas">
+            <h2>tarefas <button onclick="novaTarefa()" id="novaTarefa">nova tarefa</button></h2>
+            <h6>nenhuma tarefa registrada</h6>
+        </section>
+        <section id="overlay" onclick="fecharModal()"></section>
+        <div class="modal" id="criarTarefa">
+            <form action="">
+                <label for="titulo">Titulo <box-icon name='window-close' onclick="fecharModal()"></box-icon></label>
+                <input type="text" id="titulo">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao"></textarea>
+                <button>Criar</button>
+            </form>
+        </div>
+    </main>
+    <script src="./app.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>
