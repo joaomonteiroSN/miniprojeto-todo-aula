@@ -7,3 +7,4 @@ function fecharModal() {
     overlay.classList.remove("active")
     criarTarefa.classList.remove("active")
 }
+
