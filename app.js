@@ -29,3 +29,25 @@ function inserirTarefas(listaDeTarefas) {
         })
     }
 } 
+
+function enviarTarefa() {
+    event.preventDefault();
+    event.stopPropagation();
+    let tarefa = {
+        titulo: titulo.value,
+        descricao: descricao.value
+    }
+    fetch("http://localhost:3000/tarefas", {
+        method:"POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(tarefa)
+    })
+    .then(res => res.json)
+    .then(res => {
+        console.log(res)
+        fecharModal();
+        buscarTarefas();
+    })
+}

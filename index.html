@@ -19,11 +19,11 @@
         </section>
         <section id="overlay" onclick="fecharModal()"></section>
         <div class="modal" id="criarTarefa">
-            <form action="">
+            <form action="" onsubmit="enviarTarefa()">
                 <label for="titulo">Titulo <box-icon name='window-close' onclick="fecharModal()"></box-icon></label>
-                <input type="text" id="titulo">
+                <input type="text" id="titulo" required>
                 <label for="descricao">Descrição</label>
-                <textarea id="descricao"></textarea>
+                <textarea id="descricao" required></textarea>
                 <button>Criar</button>
             </form>
         </div>
