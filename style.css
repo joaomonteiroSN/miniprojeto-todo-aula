@@ -24,6 +24,10 @@ body {
     border-radius: 8px;
 }
 
+#tarefas ul li.oculto {
+    display: none;
+}
+
 #overlay {
     width: 100%;
     height: 100%;

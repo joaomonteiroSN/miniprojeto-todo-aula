@@ -24,7 +24,7 @@ function inserirTarefas(listaDeTarefas) {
                 `<li>
                     <h5>${tarefa.titulo}</h5>
                     <p>${tarefa.descricao}</p>
-                    <box-icon size="sd" type='solid' name='trash'></box-icon>
+                    <box-icon size="sd" type='solid' name='trash' onclick="deletarTarefa(${tarefa.id})"></box-icon>
                 </li>`
         })
     }
@@ -32,7 +32,6 @@ function inserirTarefas(listaDeTarefas) {
 
 function enviarTarefa() {
     event.preventDefault();
-    event.stopPropagation();
     let tarefa = {
         titulo: titulo.value,
         descricao: descricao.value
@@ -50,4 +49,32 @@ function enviarTarefa() {
         fecharModal();
         buscarTarefas();
     })
+}
+
+function deletarTarefa(id) {
+    fetch(`http://localhost:3000/tarefas/${id}`, {
+        method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(res => {
+        alert("Tarefa deletada com sucesso")
+        buscarTarefas();
+    })
+}
+
+function pesquisarTarefa() {
+    let lis = document.querySelectorAll("ul li")
+    if(busca.value.length > 0) {
+        lis.forEach(li => {
+            if(!li.children[0].innerText.includes(busca.value)){
+                li.classList.add('oculto')
+            } else {
+                li.classList.remove('oculto')
+            }
+        })
+    } else {
+        lis.forEach(li => {
+            li.classList.remove('oculto')
+        })
+    }
 }
